@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Maze Solver</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css">
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">3D Maze Solver</h1>
+        <form id="maze-form">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="dimensions">Maze Dimensions (N x M x K):</label>
+                    <input type="text" class="form-control" id="dimensions" placeholder="e.g. 3x3x3" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="start">Start Position (x, y, z):</label>
+                    <input type="text" class="form-control" id="start" placeholder="e.g. 0,0,0" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="stop">Stop Position (x, y, z):</label>
+                    <input type="text" class="form-control" id="stop" placeholder="e.g. 2,2,2" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="visualization">Visualization Type:</label>
+                <select class="form-control" id="visualization">
+                    <option value="text">Text</option>
+                    <option value="3d">3D</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Solve Maze</button>
+            <button type="button" id="reset-button" class="btn btn-secondary btn-block">Reset</button>
+        </form>
+        <div class="result" id="result"></div>
+        <div id="maze3d"></div>
+        <div class="legend">
+            <div class="empty-cell">
+                <span></span> Empty Cell
+            </div>
+            <div class="path-cell">
+                <span></span> Path Cell
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://cdn.babylonjs.com/babylon.js"></script>
+    <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+    <script src="/static/js/validation.js"></script>
+    <script src="/static/js/mazeCreation.js"></script>
+    <script src="/static/js/resultHandler.js"></script>
+    <script src="/static/js/errorHandler.js"></script>
+    <script src="/static/js/visualization.js"></script>
+    <script src="/static/js/formHandler.js"></script>
+</body>
+</html>

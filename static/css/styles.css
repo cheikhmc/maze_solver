@@ -1,0 +1,61 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.btn {
+    margin-top: 10px;
+}
+
+.result {
+    margin-top: 20px;
+}
+
+#maze3d {
+    width: 100%;
+    height: 600px;
+    margin-top: 20px;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+}
+
+.legend {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    background-color: #e9ecef;
+}
+
+.legend div {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.legend div span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.legend .empty-cell span {
+    background-color: green;
+}
+
+.legend .path-cell span {
+    background-color: blue;
+}
