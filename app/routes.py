@@ -19,5 +19,20 @@ def create_routes(app: Flask) -> None:
         """
         data = request.json
         api_url = current_app.config['API_URL']
-        response = requests.post(api_url, json=data)
-        return jsonify(response.json())
+        
+        try:
+            response = requests.post(api_url, json=data, timeout=30)  # Set a timeout of 30 seconds
+            response.raise_for_status()  # Raise an HTTPError for bad responses
+            # Attempt to parse JSON response
+            response_data = response.json()
+        except requests.exceptions.Timeout:
+            # Handle request timeout
+            return jsonify({"error": "The request to the maze solving API timed out. Please try with smaller dimensions."}), 408
+        except requests.exceptions.RequestException as e:
+            # Handle other network errors or invalid HTTP responses
+            return jsonify({"error": "Failed to connect to the maze solving API."}), 500
+        except requests.exceptions.JSONDecodeError:
+            # Handle errors in JSON decoding
+            return jsonify({"error": "Invalid response format from the maze solving API."}), 500
+        
+        return jsonify(response_data)

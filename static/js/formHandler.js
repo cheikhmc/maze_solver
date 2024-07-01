@@ -24,7 +24,8 @@ document.getElementById('maze-form').addEventListener('submit', async function(e
         });
 
         if (!response.ok) {
-            throw new Error('Network response was not ok');
+            const errorResponse = await response.json();
+            throw new Error(errorResponse.error || 'An unexpected error occurred');
         }
 
         const result = await response.json();
@@ -49,4 +50,13 @@ function resetForm() {
 
     // Clear 3D visualization
     document.getElementById('maze3d').innerHTML = '';
+}
+
+function showError(message) {
+    Swal.fire({
+        title: 'Error',
+        text: message || 'An unexpected error occurred',
+        icon: 'error',
+        confirmButtonText: 'OK'
+    });
 }
