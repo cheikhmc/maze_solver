@@ -20,8 +20,8 @@ if errorlevel 1 (
     exit /b
 )
 
-REM Run the Flask app with Uvicorn
-uvicorn run:asgi_app --host 0.0.0.0 --port 8000 --lifespan off
+REM Run the Flask app directly
+python run.py
 if errorlevel 1 (
     echo Failed to start the server.
     exit /b

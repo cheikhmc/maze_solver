@@ -15,7 +15,7 @@ The 3D Maze Solver is a web application that allows users to solve a 3D maze. Us
 ## Libraries and Technologies Used
 
 - **Flask**: Micro web framework for the backend.
-- **Uvicorn**: ASGI server for running the Flask app asynchronously.
+
 - **Babylon.js**: JavaScript library for 3D visualization.
 - **Bootstrap**: CSS framework for responsive design.
 - **SweetAlert2**: Library for beautiful alerts and modals.
@@ -65,7 +65,7 @@ cd maze_solver
 
 4. **Run the Application**:
     ```sh
-    uvicorn run:asgi_app --host 0.0.0.0 --port 8000
+    python run.py
     ```
 
 ### Running with Bash or Batch Scripts
@@ -87,6 +87,11 @@ cd maze_solver
     ```sh
     docker run -p 8000:8000 maze_solver
     ```
+
+## Running in Production
+
+In a production environment, it's recommended to run the app with Gunicorn and Uvicorn. These are production-grade servers that provide better performance, scalability, and reliability compared to the built-in Flask development server. They handle multiple requests concurrently and manage worker processes efficiently.
+
 
 ## Conclusion
 
