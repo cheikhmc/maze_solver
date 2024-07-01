@@ -71,7 +71,7 @@ cd maze_solver
 ### Running with Bash or Batch Scripts
 
 1. **On Windows (Batch Script)**:
-    - run the file named `run.bat`
+    - run the file named `.\run.bat`
 
 2. **On Unix or MacOS (Bash Script)**:
     - run the file named `run.sh`, do not forget to make it executable with the `chmod +x` command.
