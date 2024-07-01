@@ -1,6 +1,10 @@
 document.getElementById('maze-form').addEventListener('submit', async function(event) {
     event.preventDefault();
 
+    const solveButton = document.getElementById('solve-button');
+    solveButton.disabled = true;
+    solveButton.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Solving...`;
+
     const dimensionsInput = document.getElementById('dimensions').value;
     const startInput = document.getElementById('start').value;
     const stopInput = document.getElementById('stop').value;
@@ -33,6 +37,9 @@ document.getElementById('maze-form').addEventListener('submit', async function(e
 
     } catch (error) {
         showError(error.message);
+    } finally {
+        solveButton.disabled = false;
+        solveButton.innerHTML = 'Solve Maze';
     }
 });
 
