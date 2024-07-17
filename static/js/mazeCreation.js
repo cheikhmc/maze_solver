@@ -5,5 +5,10 @@
  */
 
 function createMaze(dimensions) {
-    return Array(dimensions[0]).fill(0).map(() => Array(dimensions[1]).fill(0).map(() => Array(dimensions[2]).fill(0)));
+    // Create a 3D array filled with random 0s or 1s as obstacles
+    return Array.from({length: dimensions[0]}, () =>
+        Array.from({length: dimensions[1]}, () =>
+            Array.from({length: dimensions[2]}, () => Math.round(Math.random()))
+        )
+    );
 }
